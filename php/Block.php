@@ -64,8 +64,8 @@ class Block {
 	 */
 	public function render_callback( $attributes, $content, $block ) {
 		$post_types = get_post_types( [ 'public' => true ] );
-		$class_name = $attributes['className'];
-
+		// Ensure that the variable $class_name has some value.
+		$class_name = ! empty( $attributes['className'] ) ? $attributes['className'] : 'no-class-name';
 		ob_start();
 
 		?>
